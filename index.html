@@ -1,0 +1,222 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bean & Brew Coffee</title>
+
+    <script type="module" src="https://pyscript.net/releases/2026.7.2/core.js"></script>
+    <link href="https://pyscript.net/releases/2026.7.2/core.css" rel="stylesheet">
+    
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            padding: 0 30px 30px;
+            font-family: Arial, sans-serif;
+            color: #3b2416;
+            background:
+                linear-gradient(rgba(58, 35, 20, 0.7), rgba(58, 35, 20, 0.7)),
+                url("https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1600&q=80")
+                center/cover fixed;
+        }
+
+        nav {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto 30px;
+            padding: 16px 22px;
+            border-bottom: 1px solid rgba(255, 248, 237, 0.35);
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 28px;
+            flex-wrap: wrap;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #fff8ed;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #f3c58b;
+        }
+
+        .coffee-shop {
+            width: 100%;
+            max-width: 620px;
+            margin: 0 auto;
+            padding: 35px;
+            border-radius: 22px;
+            background: #fff8ed;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 28px;
+        }
+
+        .logo {
+            font-size: 48px;
+        }
+
+        h1 {
+            margin: 8px 0;
+            color: #6f3e21;
+            font-family: Georgia, serif;
+            font-size: 38px;
+        }
+
+        header p {
+            margin: 0;
+            color: #9a6848;
+        }
+
+        .menu {
+            display: grid;
+            gap: 12px;
+        }
+
+        .drink {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 18px;
+            border: 2px solid #ead4ba;
+            border-radius: 12px;
+            background: #fffdf9;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .drink:hover {
+            border-color: #a9673f;
+            background: #fff2df;
+            transform: translateY(-2px);
+        }
+
+        .drink-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: bold;
+        }
+
+        .drink input {
+            width: 18px;
+            height: 18px;
+            accent-color: #8b4f2c;
+        }
+
+        .price {
+            color: #8b4f2c;
+            font-weight: bold;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 24px;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            color: white;
+            background: #8b4f2c;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        button:hover {
+            background: #63351f;
+        }
+
+        #output {
+            margin-top: 22px;
+            padding: 18px;
+            border-radius: 10px;
+            background: #f3dfc5;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="sku.html">SKU Generator</a></li>
+        </ul>
+    </nav>
+    <main class="coffee-shop">
+        <header>
+            <div class="logo">☕</div>
+            <h1>Bean & Brew</h1>
+            <p>Freshly brewed happiness in every cup</p>
+        </header>
+
+        <section class="menu">
+            <label class="drink">
+                <span class="drink-info">
+                    <input type="checkbox" id="coffee1" value="100">
+                    Americano
+                </span>
+                <span class="price">₱100</span>
+            </label>
+
+            <label class="drink">
+                <span class="drink-info">
+                    <input type="checkbox" id="coffee2" value="120">
+                    Matcha Latte
+                </span>
+                <span class="price">₱120</span>
+            </label>
+
+            <label class="drink">
+                <span class="drink-info">
+                    <input type="checkbox" id="coffee3" value="180">
+                    Spanish Latte
+                </span>
+                <span class="price">₱180</span>
+            </label>
+
+            <label class="drink">
+                <span class="drink-info">
+                    <input type="checkbox" id="coffee4" value="160">
+                    Affogato
+                </span>
+                <span class="price">₱160</span>
+            </label>
+
+            <label class="drink">
+                <span class="drink-info">
+                    <input type="checkbox" id="coffee5" value="160">
+                    Cappuccino
+                </span>
+                <span class="price">₱160</span>
+            </label>
+        </section>
+
+        <button py-click="createorder">Create Order</button>
+        <div id="output"></div>
+    </main>
+
+    <script type="py" src="main.py"></script>
+</body>
+</html>
+```

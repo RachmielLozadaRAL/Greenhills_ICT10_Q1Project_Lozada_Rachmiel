@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sku Generator</title>
+    <script type="module" src="https://pyscript.net/releases/2026.7.2/core.js"></script>
+    <link href="https://pyscript.net/releases/2026.7.2/core.css" rel="stylesheet">
+    
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+
+            body {
+                margin: 0;
+                min-height: 100vh;
+                padding: 0 20px 40px;
+                font-family: Arial, sans-serif;
+                color: #3b2416;
+                background:
+                    linear-gradient(rgba(58, 35, 20, 0.7), rgba(58, 35, 20, 0.7)),
+                    url("https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1600&q=80")
+                    center/cover fixed;
+            }
+
+            nav {
+                width: 100%;
+                max-width: 900px;
+                margin: 0 auto 30px;
+                padding: 16px 22px;
+                border-bottom: 1px solid rgba(255, 248, 237, 0.35);
+            }
+
+            .nav-links {
+                display: flex;
+                justify-content: center;
+                gap: 28px;
+                flex-wrap: wrap;
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+
+            .nav-links a {
+                color: #fff8ed;
+                font-weight: bold;
+                text-decoration: none;
+            }
+
+            .nav-links a:hover,
+            .nav-links a.active {
+                color: #f3c58b;
+            }
+
+            main {
+                width: 100%;
+                max-width: 620px;
+                margin: 70px auto 0;
+                padding: 35px;
+                border-radius: 22px;
+                background: #fff8ed;
+                box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
+            }
+
+            h1 {
+                margin: 0 0 28px;
+                color: #6f3e21;
+                font-family: Georgia, serif;
+                font-size: 38px;
+                text-align: center;
+            }
+
+            form {
+                display: grid;
+                gap: 10px;
+            }
+
+            label {
+                color: #6f3e21;
+                font-weight: bold;
+            }
+
+            select,
+            input {
+                width: 100%;
+                padding: 12px;
+                border: 2px solid #ead4ba;
+                border-radius: 8px;
+                color: #3b2416;
+                background: #fffdf9;
+                font-size: 16px;
+            }
+
+            button {
+                margin-top: 14px;
+                padding: 15px;
+                border: 0;
+                border-radius: 10px;
+                color: white;
+                background: #8b4f2c;
+                font-size: 17px;
+                font-weight: bold;
+                cursor: pointer;
+            }
+
+            button:hover {
+                background: #63351f;
+            }
+
+            #sku-output {
+                min-height: 24px;
+                margin: 22px 0 0;
+                padding: 18px;
+                border-radius: 10px;
+                background: #f3dfc5;
+                font-weight: bold;
+                text-align: center;
+            }
+
+            @media (max-width: 520px) {
+                main {
+                    margin-top: 40px;
+                    padding: 25px;
+                }
+
+                h1 {
+                    font-size: 32px;
+                }
+            }
+        </style>
+</head>
+<body>
+    <nav>
+        <ul class="nav-links">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="sku.html" class="active">SKU Generator</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h1>SKU Generator</h1>
+        <form>
+            <label for="sku-product">Product:</label>
+            <select id="sku-product">
+                <option value="AMR">Americano</option>
+                <option value="MAT">Matcha Latte</option>
+                <option value="SPA">Spanish Latte</option>
+                <option value="AFF">Affogato</option>
+                <option value="CAP">Cappuccino</option>
+            </select>
+
+            <label for="sku-number">Product number:</label>
+            <input id="sku-number" type="number" min="1" value="1">
+
+            <button type="button" py-click="generate_sku">Generate SKU</button>
+        </form>
+
+        <p id="sku-output"></p>
+    </main>
+
+    <script type="py" src="main.py"></script>
+</body>
+</html>
